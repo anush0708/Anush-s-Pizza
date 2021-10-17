@@ -13,6 +13,13 @@ export const setUser=(name)=>{
         data:name
     }
 }
+export const setMail=(mail)=>{
+    const {MAIL}=ActionTypes
+    return {
+        type:MAIL,
+        data:mail
+    }
+}
 export const setPassword=(password)=>{
     const {PASSWORD}=ActionTypes
     return {
@@ -33,5 +40,42 @@ export const setloggedInUser=(details)=>{
     return {
         type:SET_USER,
         data:details,
+    }
+}
+
+export const loginToggle=()=>{
+    const {LOGIN_TOGGLE}=ActionTypes
+    return{
+        type:LOGIN_TOGGLE,
+        data:"",
+    }
+}
+export const signUpToggle=()=>{
+    const {SIGN_UP_TOGGLE}=ActionTypes
+    return{
+        type:SIGN_UP_TOGGLE,
+        data:"",
+    }
+}
+export const deleteCartProduct=(id)=>{
+    const {DELETE_CART_PRODUCT}=ActionTypes
+    return{
+        type:DELETE_CART_PRODUCT,
+        data:id
+    }
+
+}
+export const incrementCartProduct=(id)=>{
+    const {INCREMENT_CART_PRODUCT}=ActionTypes
+    return {
+        type:INCREMENT_CART_PRODUCT,
+        data:id
+    }
+}
+export const decrementCartProduct=(id)=>{
+    const {DECREMENT_CART_PRODUCT}=ActionTypes
+    return {
+        type:DECREMENT_CART_PRODUCT,
+        data:id
     }
 }

@@ -8,8 +8,9 @@ pizzasRouter.get('/', async (request, response) => {
 })
 pizzasRouter.post('/', async (request, response) => {
   const body=request.body
-  console.log(body.description)
+  console.log(body)
   const pizza=new Pizza({
+    categoryId:body.categoryId,
     img:body.img,
     alt:body.alt,
     name:body.name,

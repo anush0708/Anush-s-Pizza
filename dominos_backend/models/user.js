@@ -2,17 +2,22 @@ const mongoose = require('mongoose')
 const uniqueValidator=require('mongoose-unique-validator')
 const userSchema = new mongoose.Schema({
   username: {
-      type: String,
-    unique:true},
+               type: String,
+              unique:true
+            },
   mail: {
-    type: String,
-  unique:true},
+                type: String,
+                unique:true
+            },
   passwordHash: String,
   cart: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Pizza'
-    }
+      productId:{
+               type: mongoose.Schema.Types.ObjectId,
+              ref: 'Pizza'
+          },
+      quantity:Number
+  }
   ],
 })
 userSchema.plugin(uniqueValidator)

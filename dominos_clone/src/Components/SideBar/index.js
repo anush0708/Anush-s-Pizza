@@ -14,9 +14,9 @@ const SideBar = ({isOpen,toggle}) => {
                 <CloseIcon/>
             </Icon>
             <SideBarMenu>
-                <SideBarLink to='/menu'>Pizzas</SideBarLink>
-                <SideBarLink to='/menu'>Desserts </SideBarLink>
-                <SideBarLink to='/menu'>Full Menu</SideBarLink>
+                <SideBarLink to='/menu'>Menu</SideBarLink>
+                <SideBarLink to='/'>Account</SideBarLink>
+                <SideBarLink to='/cart'>CART</SideBarLink>
             </SideBarMenu>
             <SideBtnWrap>
                 <SideBarRoute to='/'>Order Now</SideBarRoute>

@@ -12,11 +12,16 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true}).then(r
   })
 
 const pizzaSchema = new mongoose.Schema({
+  categoryId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category'
+    },
     img:String,
     alt:String,
     name:  String,      
     desc: String,
     price: Number,
+    
 })
 pizzaSchema.set('toJSON', {
     transform: (document, returnedObject) => {

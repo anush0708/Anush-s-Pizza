@@ -1,11 +1,14 @@
 import axios from "axios"
 const baseURL="/api/pizzas"
 
-const getAll=()=>{
- const res=axios.get(baseURL)
-  return res.then(Response=> Response.data)
+const getAll= async()=>{
+ const res= await axios.get("/api/category")
+  return res.data
 }
-
+const getAllProducts= async()=>{
+  const res= await axios.get("/api/pizzas")
+   return res.data
+ }
 const create=(personObject)=>{
 const res=axios.post(baseURL,personObject)
   return res.then(Response=> Response.data)
@@ -14,7 +17,7 @@ const loginUser=(personObject)=>{
     const res=axios.post("/api/login",personObject)
       return res.then(Response=> Response.data)
     }
-const signupUser= async(personObject)=>{
+const signUpUser= async(personObject)=>{
     const res=axios.post("/api/signup",personObject)
     return  (await res).data
 }
@@ -33,6 +36,6 @@ const update=(id,obj)=>{
   return res.then(Response=> Response.data)
 }
 
-const logging=  { getAll,create,loginUser,signupUser,deleteContact,update }
+const logging=  { getAll,getAllProducts,create,loginUser,signUpUser,deleteContact,update }
 
 export default logging

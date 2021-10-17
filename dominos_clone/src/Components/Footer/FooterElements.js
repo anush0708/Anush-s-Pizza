@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
   background-color: #0d0909;
+  bottom: 1px;
+  justify-content: end;
 `;
 
 export const LocationWrapper=styled.div`

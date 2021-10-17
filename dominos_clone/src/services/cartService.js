@@ -19,5 +19,23 @@ const getCartProducts=async(token)=>{
     console.log(response.data)
     return response.data
 }
-  const cartService= {updateCartProducts,getCartProducts}
+const updateQuantity=async(token,id,data)=>{
+  const config={
+      headers: { Authorization:token }
+  }
+  const response = await axios.put(`${baseUrl}/${id}`,data,config)
+  console.log(response.data)
+  return response.data
+}
+
+const deleteCartProduct=async(token,id)=>{
+  const config={
+      headers: { Authorization:token }
+  }
+  const response = await axios.delete(`${baseUrl}/${id}`,config)
+  console.log(response.data)
+  return response.data
+}
+
+  const cartService= {updateCartProducts,getCartProducts,deleteCartProduct,updateQuantity}
   export default cartService

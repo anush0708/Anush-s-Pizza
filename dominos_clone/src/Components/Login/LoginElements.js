@@ -16,3 +16,22 @@ padding: 2px 2px;
     cursor: pointer;
 }
 `
+export const Header=styled.div`
+width: 100%;
+height:80px;
+display: flex;
+padding :10px;
+align-items: center;
+justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+
+p{
+ color: black;
+ width:90px;
+ &:hover{
+     cursor: pointer;
+     font-size:20px;
+ }
+}
+
+`

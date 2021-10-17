@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import cartService from '../../services/cartService'
-import {updateCart} from '../../redux/actions/productActions'
+import {deleteCartProduct,incrementCartProduct,decrementCartProduct, updateCart} from '../../redux/actions/productActions'
 import { CartContainer,
     CartHeading,
     CartWrap,
@@ -19,55 +19,90 @@ import { CartContainer,
     PriceType,
 ItemContent,
 ItemName,
-ItemPrice} from './CartElements'
+ItemPrice,
+NoItems} from './CartElements'
+import { CounterButton, CounterButtonWrapper } from '../Products/ProductElements'
 const Cart = () => {
      const dispatch = useDispatch()
-     if(useSelector(state => state.loggedInUser.token)!="")
-        {
-          cartService.getCartProducts(`bearer ${JSON.parse(window.localStorage.userDetails).token}`).then(products=>dispatch(updateCart(products)))
-        }  
-         
-    const deleteProduct=()=>{
-
-    }
     
-    const cartElemets=useSelector(state=>state.cart)
+    const deleteProduct=(e,id)=>{
+        cartService.deleteCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,id)
+        dispatch(deleteCartProduct(id))
+    }
+    const decrementCartProductHandler=(e,product)=>{
+        // cartService.decrementCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,id)
+       const original= e.target.style.background
+       e.target.style.background='#FF1493'
+       window.setTimeout(function() { e.target.style.background = original; }, 100);
+        if(product.quantity===1)
+        {
+            cartService.deleteCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,product._id)
+            dispatch(deleteCartProduct(product._id))
+            console.log(product._id)
+        }
+        else{
+            dispatch(decrementCartProduct(product._id))
+        }
+        
+    }
+    const incrementCartProductHandler=(e,id)=>{
+        const original= e.target.style.background
+       e.target.style.background='#FF1493'
+       window.setTimeout(function() { e.target.style.background = original; }, 100);
+        dispatch(incrementCartProduct(id))
+    }
+    const cartElements=useSelector(state=>state.cart)
+    
     return (
+       
         <CartContainer>
             <CartHeading>CART</CartHeading>
+            {
+            cartElements.length>0
+            ?
             <CartWrap>
                 <CartProducts>
-                {cartElemets.map((product)=>{
+                {cartElements.map((product)=>{
                     return (
-                        <ProductCard key={product.ProductName}> 
-                        <ProductImg src={product.img} alt={product.alt}/>
+                        
+                        <ProductCard key={product.productId.ProductName}> 
+                        <ProductImg src={product.productId.img} alt={product.alt}/>
                         <ProductDetails>
-                        <ProductName>{product.name}</ProductName>
-                        <ProductPrice>{product.price}</ProductPrice>
+                        <ProductName>{product.productId.name}</ProductName>
+                        <ProductPrice>{product.productId.price}</ProductPrice>
                         </ProductDetails>
-                        <ProductDeleteBtn onClick={deleteProduct}>Delete</ProductDeleteBtn>
+                        {/* <ProductDeleteBtn onClick={e=>deleteProduct(e,product.productId.id)}>Delete</ProductDeleteBtn> */}
+                        <CounterButtonWrapper> 
+                            <CounterButton onClick={e=>decrementCartProductHandler(e,product)}>
+                                -
+                            </CounterButton>
+                                {product.quantity}
+                            <CounterButton onClick={e=>incrementCartProductHandler(e,product._id)}>
+                                +
+                            </CounterButton>
+                        </CounterButtonWrapper>
                         </ProductCard>
                     )
                 })}
                 </CartProducts>
                 <PriceCard>
                     <p color="white">Price Break up</p>
-                    {cartElemets.map((product)=>{
+                    {cartElements.map((product)=>{
                         return (
                                  <ItemContent>
-                                    <ItemName>{product.name}</ItemName>
-                                    <ItemPrice>{product.price}</ItemPrice>
-                                    </ItemContent>
+                                    <ItemName>{product.productId.name} * {product.quantity} </ItemName>
+                                    <ItemPrice>{product.productId.price*product.quantity}</ItemPrice>
+                                </ItemContent>
                                 )
                         })
                     }
                     <ItemContent>
                     <PriceType>Cart Amount </PriceType>
-                    <Amount>{cartElemets.reduce((acc,curr)=> acc+curr.price,0)} </Amount>
+                    <Amount>{cartElements.reduce((acc,curr)=> acc+(curr.productId.price*curr.quantity),0)} </Amount>
                     </ItemContent>
                     <ItemContent>
                     <PriceType>TAX </PriceType>
-                    <Amount>{cartElemets.reduce((acc,curr)=> acc+curr.price,0)*.02} </Amount>
+                    <Amount>{ (cartElements.reduce((acc,curr)=> acc+curr.productId.price*curr.quantity,0)*.02).toFixed(2)} </Amount>
                     </ItemContent>
                     <ItemContent>
                     <PriceType>DELEVERY </PriceType>
@@ -75,12 +110,15 @@ const Cart = () => {
                     </ItemContent>
                     <ItemContent>
                     <PriceType>PAY AMOUNT </PriceType>
-                    <Amount>{cartElemets.reduce((acc,curr)=> acc+curr.price,0)*.02+cartElemets.reduce((acc,curr)=> acc+curr.price,0) } </Amount>
-                    </ItemContent>
+                    <Amount>{cartElements.reduce((acc,curr) => acc + curr.productId.price,0)*.02+cartElements.reduce((acc,curr)=> acc+curr.productId.price,0) } </Amount>
+                    </ItemContent> 
 
                 </PriceCard>
-            </CartWrap>
-
+                </CartWrap>
+            :
+            <NoItems><p>No Items in the cart</p></NoItems>
+            }
+            
         </CartContainer>
     )
 }

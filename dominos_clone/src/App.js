@@ -13,39 +13,53 @@ import {useDispatch,Provider, useSelector} from "react-redux"
 import {productDetails, setloggedInUser, updateCart} from "./redux/actions/productActions"
 import pizzaService from "./services/log"
 import cartService from "./services/cartService"
+import { useState } from "react";
+import NavBar from "./Components/NavBar";
 function App() {
-  
+  const [allProducts,setAllProducts]= useState([])
   const dispatch = useDispatch()
-  const token = `bearer ${useSelector(state=>state.loggedInUser.token)}`
-  const updateCartContent=(product)=>{
-    dispatch(updateCart(product));
-   const newObject={id:product.id}
-    cartService.updateCartProducts(newObject,token)
-    console.log(product.id,token)
-    
-  }
- 
   useEffect(() => {
-    if(localStorage.getItem("userDetails"))
+    if(localStorage.getItem("userDetails")!=""&&localStorage.getItem("userDetails")!=undefined)
     {
         dispatch(setloggedInUser(JSON.parse(localStorage.getItem("userDetails")) ))
+        cartService.getCartProducts(`bearer ${JSON.parse(window.localStorage.userDetails)?.token}`).then(products=>dispatch(updateCart(products)))  
+       
     }
     pizzaService.getAll().then(products=>dispatch(productDetails(products)))
-    
+    pizzaService.getAllProducts().then(products=>setAllProducts(products))
+
     // dispatch(updateCart((await cartService.getCartProducts(token)).Prodcuts)) 
   }, [])
+
+  const token = `bearer ${useSelector(state=>state.loggedInUser.token)}`
+
+  const updateCartContent= async(product)=>{
+    
+   const newObject={
+      productId:product,
+      quantity:1
+      }
+      
+        const res=await cartService.updateCartProducts(newObject,token)
+         res.productId=allProducts.find(prd=>prd.id===res.productId) 
+         console.log("main",res)
+        dispatch(updateCart(res));
+  }
+ 
+  console.log(useSelector(state=>state.cart).filter(prd=>prd.id!="6157f624d69bd95dfe7e6827"))
  
   return (
     <Router>
       <GlobalStyle/>
       <Switch>
       <Route path="/cart">
-        <Cart />
+
+        <Cart/>
       </Route>
       
-      <Route path="/menu">
+      {/* <Route path="/menu">
         <Menu />
-      </Route>
+      </Route> */}
       <Route exact path="/login" component={Login} />
       
       <Route exact path="/" >

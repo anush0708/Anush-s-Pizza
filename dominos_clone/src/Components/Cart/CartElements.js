@@ -5,6 +5,16 @@ height: 100%;
 width: 100%;
 background: black;
 
+
+`
+export const NoItems=styled.div`
+min-height: 38.3vh;
+justify-content: center;
+align-items: center;
+p{
+    color: white;
+
+}
 `
 
 export const CartHeading=styled.h1`
@@ -102,7 +112,7 @@ p{
 
 export const TotalPrice=styled.p`
 color:white;
-
+text-align: right;
 
 `
 
@@ -110,18 +120,17 @@ export const ItemContent=styled.div`
 
 display: flex;
 column-gap: 80px;
-p{
-    text-align: start;
-}
-
 `
 export const ItemName=styled.p`
 color:white;
 width:70%;
+
 `
 export const ItemPrice=styled.p`
 color:white;
 width: 30%;
+
+
 `
 export const PriceType=styled.p`
 color:white;
@@ -129,5 +138,6 @@ width: 70%;
 `
 export const Amount=styled.p`
 color:white;
+text-align: right;
 width:30%;
 `

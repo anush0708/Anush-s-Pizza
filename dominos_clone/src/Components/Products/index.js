@@ -1,4 +1,7 @@
 import React from 'react'
+import { useState } from 'react'
+import ProductButtonHandler from './ProductButtonHandler'
+import ProductDescHandler from './ProductDescHandler'
 import {
     ProdcutsContainer,
     ProductsHeading,
@@ -12,6 +15,7 @@ import {
     ProductButton
     } from './ProductElements'
 const Prodcuts = ({heading,data,updateCart}) => {
+   
     return (
         <ProdcutsContainer>
             <ProductsHeading>{heading} </ProductsHeading>
@@ -22,9 +26,9 @@ const Prodcuts = ({heading,data,updateCart}) => {
                             <ProductImg src={product.img} alt={product.alt}/>
                             <ProductInfo>
                                 <ProductTitle>{product.name}</ProductTitle>
-                                <ProductDesc>{product.desc} </ProductDesc>
+                                <ProductDescHandler product={product}/>
                                 <ProductPrice>{product.price} </ProductPrice>
-                                <ProductButton onClick={e=>updateCart(product)} >Add to Cart </ProductButton>
+                                <ProductButtonHandler product={product} updateCart={updateCart}/>
                             </ProductInfo>
                         </ProductCard>
                     )
