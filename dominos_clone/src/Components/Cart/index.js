@@ -22,24 +22,30 @@ ItemName,
 ItemPrice,
 NoItems} from './CartElements'
 import { CounterButton, CounterButtonWrapper } from '../Products/ProductElements'
+import Checkout from './Checkout'
 const Cart = () => {
+
      const dispatch = useDispatch()
     
-    const deleteProduct=(e,id)=>{
-        cartService.deleteCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,id)
-        dispatch(deleteCartProduct(id))
-    }
+    // const deleteProduct=(e,id)=>{
+    //     cartService.deleteCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,id)
+    //     dispatch(deleteCartProduct(id))
+    // }
     const decrementCartProductHandler=(e,product)=>{
         // cartService.decrementCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,id)
        const original= e.target.style.background
        e.target.style.background='#FF1493'
        window.setTimeout(function() { e.target.style.background = original; }, 100);
+
+       //delete the product from cart
         if(product.quantity===1)
         {
             cartService.deleteCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,product._id)
             dispatch(deleteCartProduct(product._id))
             console.log(product._id)
         }
+
+        //decrement cart quantity
         else{
             dispatch(decrementCartProduct(product._id))
         }
@@ -52,7 +58,9 @@ const Cart = () => {
         dispatch(incrementCartProduct(id))
     }
     const cartElements=useSelector(state=>state.cart)
-    
+    let cartInitialAmount=cartElements.reduce((acc,curr)=> acc+(curr.productId.price*curr.quantity),0).toFixed(2)
+    let cartTax=(cartInitialAmount*.02).toFixed(2)
+    let finalCartValue= Number(cartInitialAmount) +Number(cartTax) 
     return (
        
         <CartContainer>
@@ -91,18 +99,18 @@ const Cart = () => {
                         return (
                                  <ItemContent>
                                     <ItemName>{product.productId.name} * {product.quantity} </ItemName>
-                                    <ItemPrice>{product.productId.price*product.quantity}</ItemPrice>
+                                    <ItemPrice>{(product.productId.price*product.quantity).toFixed(2)}</ItemPrice>
                                 </ItemContent>
                                 )
                         })
                     }
                     <ItemContent>
                     <PriceType>Cart Amount </PriceType>
-                    <Amount>{cartElements.reduce((acc,curr)=> acc+(curr.productId.price*curr.quantity),0)} </Amount>
+                    <Amount>{cartInitialAmount} </Amount>
                     </ItemContent>
                     <ItemContent>
                     <PriceType>TAX </PriceType>
-                    <Amount>{ (cartElements.reduce((acc,curr)=> acc+curr.productId.price*curr.quantity,0)*.02).toFixed(2)} </Amount>
+                    <Amount>{cartTax } </Amount>
                     </ItemContent>
                     <ItemContent>
                     <PriceType>DELEVERY </PriceType>
@@ -110,15 +118,15 @@ const Cart = () => {
                     </ItemContent>
                     <ItemContent>
                     <PriceType>PAY AMOUNT </PriceType>
-                    <Amount>{cartElements.reduce((acc,curr) => acc + curr.productId.price,0)*.02+cartElements.reduce((acc,curr)=> acc+curr.productId.price,0) } </Amount>
+                    <Amount>{finalCartValue} </Amount>
                     </ItemContent> 
-
+                    <Checkout cartElements={cartElements} finalCartValue={finalCartValue} />
                 </PriceCard>
                 </CartWrap>
             :
             <NoItems><p>No Items in the cart</p></NoItems>
             }
-            
+          
         </CartContainer>
     )
 }

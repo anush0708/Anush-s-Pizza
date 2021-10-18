@@ -42,7 +42,7 @@ const updateCart=(state=[],action)=>{
              return  state=state.map(obj=>{
                      if(obj._id===action.data)
                      {
-                         if(obj.quantity==1)
+                         if(obj.quantity===1)
                          {
                             // return (state.filter(prd=>prd.id!==action.data))
                          }

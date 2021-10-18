@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.js": "/static/js/main.5b0c5cc8.chunk.js",
+    "main.js.map": "/static/js/main.5b0c5cc8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.bf854031.js",
+    "runtime-main.js.map": "/static/js/runtime-main.bf854031.js.map",
+    "static/js/2.f61b58f6.chunk.js": "/static/js/2.f61b58f6.chunk.js",
+    "static/js/2.f61b58f6.chunk.js.map": "/static/js/2.f61b58f6.chunk.js.map",
+    "static/js/3.27ad69cd.chunk.js": "/static/js/3.27ad69cd.chunk.js",
+    "static/js/3.27ad69cd.chunk.js.map": "/static/js/3.27ad69cd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/js/2.f61b58f6.chunk.js.LICENSE.txt": "/static/js/2.f61b58f6.chunk.js.LICENSE.txt",
+    "static/media/Milkshake.c301bd35.png": "/static/media/Milkshake.c301bd35.png",
+    "static/media/burger.10be6a0f.png": "/static/media/burger.10be6a0f.png",
+    "static/media/cake.b4fe0459.png": "/static/media/cake.b4fe0459.png",
+    "static/media/featured3.66d68644.jpg": "/static/media/featured3.66d68644.jpg",
+    "static/media/pizza-10.afa9fdc7.jpg": "/static/media/pizza-10.afa9fdc7.jpg",
+    "static/media/pizza-3.f2f9b9a4.jpg": "/static/media/pizza-3.f2f9b9a4.jpg",
+    "static/media/pizza-4.4305a4a4.jpg": "/static/media/pizza-4.4305a4a4.jpg",
+    "static/media/pizza-5.0366b344.jpg": "/static/media/pizza-5.0366b344.jpg",
+    "static/media/pizza-6.88c5b2eb.jpg": "/static/media/pizza-6.88c5b2eb.jpg",
+    "static/media/pizza-7.d5ba74a3.jpg": "/static/media/pizza-7.d5ba74a3.jpg",
+    "static/media/pizza-8.7101aacf.jpg": "/static/media/pizza-8.7101aacf.jpg",
+    "static/media/pizza-9.acddfb30.jpg": "/static/media/pizza-9.acddfb30.jpg",
+    "static/media/pizza.11e1dee4.png": "/static/media/pizza.11e1dee4.png",
+    "static/media/product-1.36d084f3.jpg": "/static/media/product-1.36d084f3.jpg",
+    "static/media/product-2.4c066971.jpg": "/static/media/product-2.4c066971.jpg",
+    "static/media/product-3.115cc32b.jpg": "/static/media/product-3.115cc32b.jpg",
+    "static/media/sweet-1.6a6ef41a.jpg": "/static/media/sweet-1.6a6ef41a.jpg",
+    "static/media/sweet-2.d5cf1ad2.jpg": "/static/media/sweet-2.d5cf1ad2.jpg",
+    "static/media/sweet-3.badeecbe.jpg": "/static/media/sweet-3.badeecbe.jpg",
+    "static/media/sweet-4.7665817a.jpg": "/static/media/sweet-4.7665817a.jpg",
+    "static/media/sweet-5.d09c78e1.jpg": "/static/media/sweet-5.d09c78e1.jpg",
+    "static/media/sweet-6.801e6467.jpg": "/static/media/sweet-6.801e6467.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf854031.js",
+    "static/js/2.f61b58f6.chunk.js",
+    "static/js/main.5b0c5cc8.chunk.js"
+  ]
+}

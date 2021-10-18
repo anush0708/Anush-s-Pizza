@@ -27,7 +27,7 @@ const Prodcuts = ({heading,data,updateCart}) => {
                             <ProductInfo>
                                 <ProductTitle>{product.name}</ProductTitle>
                                 <ProductDescHandler product={product}/>
-                                <ProductPrice>{product.price} </ProductPrice>
+                                <ProductPrice>$ {product.price} </ProductPrice>
                                 <ProductButtonHandler product={product} updateCart={updateCart}/>
                             </ProductInfo>
                         </ProductCard>

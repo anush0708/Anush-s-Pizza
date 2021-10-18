@@ -1,7 +1,0 @@
-export const ActionTypes={
-    UPDATE_CART:"UPDATE_CART",
-    SET_PRODUCTS:"SET_PRODUCTS",
-    USER_NAME:"USER_NAME",
-    PASSWORD:"PASSWORD",
-    SET_USER:"SET_USER"
-};

@@ -107,6 +107,9 @@ p{
     text-align: center;
     
 }
+@media screen and (max-width:1100px){
+    width: 100%;
+}
 
 `
 
@@ -140,4 +143,22 @@ export const Amount=styled.p`
 color:white;
 text-align: right;
 width:30%;
+`
+
+export const PayButton=styled.button`
+height:50px;
+font-size: 1rem;
+width: 100%;
+background:#e31837;
+color: #fff;
+justify-content: center;
+align-items: center;
+border: none;
+align-self:center;
+&:hover{
+    background:#ffc500;
+    transition:0.2s ease-out;
+    cursor: pointer;
+    color: #000;
+}
 `
