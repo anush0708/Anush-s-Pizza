@@ -15,8 +15,9 @@ const getCartProducts=async(token)=>{
     const config={
         headers: { Authorization:token }
     }
+    console.log("running")
     const response = await axios.get(baseUrl,config)
-    console.log(response.data)
+    console.log("completed",response.data)
     return response.data
 }
 const updateQuantity=async(token,id,data)=>{
@@ -24,7 +25,6 @@ const updateQuantity=async(token,id,data)=>{
       headers: { Authorization:token }
   }
   const response = await axios.put(`${baseUrl}/${id}`,data,config)
-  console.log(response.data)
   return response.data
 }
 
@@ -33,7 +33,6 @@ const deleteCartProduct=async(token,id)=>{
       headers: { Authorization:token }
   }
   const response = await axios.delete(`${baseUrl}/${id}`,config)
-  console.log(response.data)
   return response.data
 }
 

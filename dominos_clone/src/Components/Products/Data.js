@@ -1,14 +1,9 @@
 import product1 from '../../Images/product-1.jpg';
 import product2 from '../../Images/product-2.jpg';
-import product3 from '../../Images/product-3.jpg';
-import product4 from '../../Images/pizza-3.jpg';
-import product5 from '../../Images/pizza-4.jpg';
+
 import product6 from '../../Images/pizza-5.jpg';
-import product7 from '../../Images/pizza-6.jpg';
 import product8 from '../../Images/pizza-7.jpg';
-import product9 from '../../Images/pizza-8.jpg';
 import product10 from '../../Images/pizza-9.jpg';
-import product11 from '../../Images/pizza-10.jpg';
 import sweet1 from '../../Images/sweet-1.jpg';
 import sweet2 from '../../Images/sweet-2.jpg';
 import sweet3 from '../../Images/sweet-3.jpg';
@@ -24,7 +19,7 @@ export const productData = [
     name: 'URL PIZZA',
     desc:
       'Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$19.99',
+    price: ' 19.99',
     button: 'Add to Cart'
   },
   {
@@ -34,7 +29,7 @@ export const productData = [
     name: 'Hawaiian Paradise',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$16.99',
+    price: ' 16.99',
     button: 'Add to Cart'
   },
   {
@@ -44,7 +39,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -54,7 +49,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -64,7 +59,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -74,7 +69,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -84,7 +79,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -94,7 +89,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -104,7 +99,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -114,7 +109,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -124,7 +119,7 @@ export const productData = [
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   }
 ];
@@ -135,7 +130,7 @@ export const topPizzas=[
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -144,7 +139,7 @@ export const topPizzas=[
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   },
   {
@@ -153,7 +148,7 @@ export const topPizzas=[
     name: 'Veggie Overload',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$14.99',
+    price: ' 14.99',
     button: 'Add to Cart'
   }
 
@@ -166,7 +161,7 @@ export const topSweets=[
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   },
   {
@@ -175,7 +170,7 @@ export const topSweets=[
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   },
   {
@@ -184,7 +179,7 @@ export const topSweets=[
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   }
 ]
@@ -196,7 +191,7 @@ export const productDataTwo = [
     name: 'Doughlicious',
     desc:
       'Belgian chocolate glazed donuts covered in icing with sprinkles on top',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   },
   {
@@ -205,7 +200,7 @@ export const productDataTwo = [
     name: 'Caramel Wonder',
     desc:
       'Vanilla ice cream covered with caramel and chocolate glaze topped with a coco stick',
-    price: '$12.99',
+    price: ' 12.99',
     button: 'Add to Cart'
   },
   {
@@ -214,7 +209,7 @@ export const productDataTwo = [
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   },
   {
@@ -223,7 +218,7 @@ export const productDataTwo = [
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   },
   {
@@ -232,7 +227,7 @@ export const productDataTwo = [
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   },
   {
@@ -241,7 +236,7 @@ export const productDataTwo = [
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   }
 ];
@@ -253,7 +248,7 @@ export const cartData = [
     name: 'Supreme Pizza',
     desc:
       'Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$19.99',
+    price: ' 19.99',
     button: 'Add to Cart'
   },
   {
@@ -262,7 +257,7 @@ export const cartData = [
     name: 'Hawaiian Paradise',
     desc:
       ' Marinara sauce, basil, italian sausage, roma tomatoes, olives, and pesto',
-    price: '$16.99',
+    price: ' 16.99',
     button: 'Add to Cart'
   },
   {
@@ -271,7 +266,7 @@ export const cartData = [
     name: 'Brownie Bunch',
     desc:
       'Double fudge brownie squares topped with white chocolate pieces and macadamia nuts',
-    price: '$9.99',
+    price: ' 9.99',
     button: 'Add to Cart'
   }
 ];

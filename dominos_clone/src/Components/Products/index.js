@@ -1,26 +1,23 @@
 import React from 'react'
-import { useState } from 'react'
 import ProductButtonHandler from './ProductButtonHandler'
 import ProductDescHandler from './ProductDescHandler'
 import {
-    ProdcutsContainer,
+    ProductsContainer,
     ProductsHeading,
     ProductWrapper,
     ProductCard,
     ProductImg,
     ProductInfo,
     ProductTitle,
-    ProductDesc,
     ProductPrice,
-    ProductButton
     } from './ProductElements'
-const Prodcuts = ({heading,data,updateCart}) => {
+const Products = ({heading,data,updateCart}) => {
    
     return (
-        <ProdcutsContainer>
+        <ProductsContainer>
             <ProductsHeading>{heading} </ProductsHeading>
             <ProductWrapper>
-                {data.map((product,index)=>{
+                {data?.map((product,index)=>{
                     return (
                         <ProductCard key={index}>
                             <ProductImg src={product.img} alt={product.alt}/>
@@ -35,8 +32,8 @@ const Prodcuts = ({heading,data,updateCart}) => {
                 })}
 
             </ProductWrapper>
-        </ProdcutsContainer>
+        </ProductsContainer>
     )
 }
 
-export default Prodcuts
+export default Products

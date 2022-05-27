@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import imgBg from "../../Images/featured3.jpg"
-export const FeatureContainer=styled.div`
+import styled from 'styled-components';
+import imgBg from '../../Images/featured3.jpg';
+
+export const FeatureContainer = styled.div`
 background: linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0.1)),url(${imgBg});
 height: 100vh;
 display: flex;
@@ -19,8 +20,8 @@ margin-bottom: 1rem;
 color:white;
 letter-spacing: 3px;
 }
-`
-export const FeatureButton=styled.button`
+`;
+export const FeatureButton = styled.button`
 font-size:1rem;
 padding: 1rem 3rem;
 border: none;
@@ -33,5 +34,5 @@ transition:0.3s ease-out;
     cursor: pointer;
     color:#000;
 }
-`
+`;
 

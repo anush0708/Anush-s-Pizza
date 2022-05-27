@@ -23,7 +23,6 @@ const signUpUser= async(personObject)=>{
 }
 const deleteContact=(id)=>{
   const res=axios.delete(`${baseURL}/${id}`)
-  console.log("deleting")
   return res.then(Response=> Response.data)
 }
 // const getCartElements=()=>{
@@ -32,7 +31,6 @@ const deleteContact=(id)=>{
 //  }
 const update=(id,obj)=>{
   const res=axios.put(`${baseURL}/${id}`,obj)
-  console.log("updating in server")
   return res.then(Response=> Response.data)
 }
 

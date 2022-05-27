@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
-export const ProdcutsContainer=styled.div`
+export const ProductsContainer=styled.div`
+@keyframes ProductsSlide{
+    0% {
+        opacity:0;
+        transform:translateY(3%);
+    }
+  
+    100% {opacity:1;
+        transform:translateY(0%);
+    }
+}
 width:100vw;
 font-family:'Times New Roman', Times, serifc ;
 min-height: 100vh;
@@ -8,6 +18,10 @@ padding :5rem calc((100vw-1300px)/2);
 background:#150f0f;
 width: 100%;
 color:#fff;
+overflow: hidden;
+animation-name:ProductsSlide;
+animation-duration: 1.5s;
+
 
 `
 export const ProductWrapper =styled.div`
@@ -22,6 +36,7 @@ margin:0 2rem;
 line-height: 2rem;
 min-height:500px;
 width:300px;
+
 `
 export const ProductImg=styled.img`
 height :300px;

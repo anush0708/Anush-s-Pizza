@@ -1,43 +1,58 @@
-import React,{useState,useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import { FaShoppingBag } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
 import SideBar from '../SideBar';
-import LoginDetailsCard from './LoginDetailsCard';
-
-import { Nav ,MainHeader,SideBarHeaders,NavLink,NavIcon,Bars,UserIcon,ShowLogin, Hamberger } from './NavBarElements'
+import LoginBar from './LoginBar';
+import { setloggedInUser } from '../../redux/actions/productActions';
+import { Nav ,MainHeader,SideBarHeaders,NavLink,NavLinkCart, Hamberger } from './NavBarElements'
 const NavBar = () => {
     const [toggleLogin, setToggleLogin] = useState(false)
+    const [headerColor, setHeaderColor] = useState("transparent")
     const [open,setOpen]=useState(false)
-    const toggleHandler=()=>{
-        setToggleLogin(!toggleLogin)
-      
-        
+    const dispatch = useDispatch()
+    const user= useSelector(state=>state.loggedInUser)?.username
+    const cartItems=useSelector(state=>state.cart).length
+    const listenScrollEvent=()=>{
+        window.scrollY>690
+        ? setHeaderColor("black")
+        : setHeaderColor("transparent")
     }
-    
- 
-    
+    useEffect(() => {
+        window.addEventListener("scroll", listenScrollEvent)
+    }, [])
+    const toggleHandler=(e)=>{
+        setToggleLogin(true)
+    }
     const toggle=()=>{
         setOpen(!open)
     }
+   
+    const logoutHandler=(e)=>{
+        setToggleLogin(false)
+        localStorage.clear("userDetails")
+        const emptyLoggeInUser={
+            token:"",
+            username:""
+        }
+        dispatch(setloggedInUser(emptyLoggeInUser)) 
+    }
     return (
-        <>
-            <Nav>
+            <Nav headerColor={headerColor}>
                 <MainHeader>
                     <NavLink to ='/'> PIZZA </NavLink>
                 </MainHeader>
                 <SideBarHeaders>
-                <NavLink to='/'>MENU</NavLink>
-                <UserIcon onClick={toggleHandler} />
-                 { toggleLogin?<ShowLogin toggleLogin={toggleLogin} >
-                      <LoginDetailsCard  toggleLogin={toggleLogin} setToggleLogin={setToggleLogin}/>
-                </ShowLogin>:<></>}
-                    {/* // {useSelector(state=>state.loggedInUser.username)!=""? */}
-                    {/* // <UserIcon to='/login'/>:<NavLink to='/login' > Login/SignUp</NavLink>} */}
+                <NavLink to='/' >Menu</NavLink>
+               
+                <NavLink to='/' onClick={(e)=>{
+                   user?logoutHandler(e):toggleHandler(e)}}>{user?<p>Log out</p>:<p>Login/Register</p> } </NavLink>
+                 <LoginBar toggleLogin={toggleLogin} setToggleLogin={setToggleLogin} />
+            
                 
-                
-                <NavLink  to="/cart">
-                    <FaShoppingBag/></NavLink>
+                <NavLinkCart  to="/cart">
+                    <FaShoppingBag/>
+                <p>{cartItems}</p>    
+                </NavLinkCart>
                         {/* <Bars/> */}
                 
                 </SideBarHeaders>
@@ -48,7 +63,6 @@ const NavBar = () => {
                 </Hamberger>
                 <SideBar isOpen={open} toggle={toggle}/>
             </Nav>
-        </>
         );
         
 }

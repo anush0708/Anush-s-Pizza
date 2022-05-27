@@ -4,8 +4,8 @@ const loginToggle=(state=true,action)=>{
             return state=true;
         case 'SIGN_UP_TOGGLE':
             return state=false;
-            default:
-            return state
+        default :
+            return state;
     }
 }
 export default loginToggle

@@ -1,3 +1,4 @@
+import axios from "axios"
 import { ActionTypes } from "../constants/actionTypes"
 export const updateCart=(products)=>{
     const {UPDATE_CART}=ActionTypes
@@ -27,13 +28,22 @@ export const setPassword=(password)=>{
         data:password
     }
 }
-export const productDetails=(products)=>{
+export const fetchProducts=()=> async(dispatch)=>{
+    const response=await axios.get("/api/category")
     const {SET_PRODUCTS}=ActionTypes
-    return {
+    dispatch({
         type:SET_PRODUCTS,
-        data:products,
-    }
+        data:response.data,
+    })
 }
+
+// export const productDetails=(products)=>{
+//     const {SET_PRODUCTS}=ActionTypes
+//     return {
+//         type:SET_PRODUCTS,
+//         data:products,
+//     }
+// }
 export const setloggedInUser=(details)=>{
     const {SET_USER}=ActionTypes
 

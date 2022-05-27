@@ -4,6 +4,6 @@ import productDetails from "./productDetails"
 import setUserDetails from "./setUserDetails";
 import loggedInUser from './loggedInUser';
 import loginToggle from "./loginToggle";
-const allreducers=combineReducers({cart:updateCart,productDetails,setUserDetails,loggedInUser,productDetails,loginToggle})
+const allreducers=combineReducers({cart:updateCart,productDetails,setUserDetails,loggedInUser,loginToggle})
 
 export default allreducers

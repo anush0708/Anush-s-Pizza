@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import cartService from '../../services/cartService'
-import {deleteCartProduct,incrementCartProduct,decrementCartProduct, updateCart} from '../../redux/actions/productActions'
+import {deleteCartProduct,incrementCartProduct,decrementCartProduct} from '../../redux/actions/productActions'
 import { CartContainer,
     CartHeading,
     CartWrap,
@@ -10,11 +10,8 @@ import { CartContainer,
     ProductImg,
     ProductDetails,
     ProductName,
-    ProductDesc,
     ProductPrice,
-    ProductDeleteBtn,
     PriceCard,
-    TotalPrice,
     Amount,
     PriceType,
 ItemContent,
@@ -42,7 +39,7 @@ const Cart = () => {
         {
             cartService.deleteCartProduct(`bearer ${JSON.parse(window.localStorage.userDetails).token}`,product._id)
             dispatch(deleteCartProduct(product._id))
-            console.log(product._id)
+
         }
 
         //decrement cart quantity

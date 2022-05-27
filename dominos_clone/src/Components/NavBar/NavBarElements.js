@@ -2,25 +2,32 @@ import { NavLink as Link} from 'react-router-dom'
 import styled from 'styled-components'
 import { FaShoppingBag } from 'react-icons/fa'
 import {AiOutlineUser} from 'react-icons/ai'
+import imgbg from '../../Assets/icons/pizzaBg.jpg'
 export const Nav=styled.nav`
-background : transparent;
-height :80px;
+background : ${({headerColor})=>headerColor};
+position: relative;
+z-index:5;
+height :4.5rem;
+width: 100%;
 display: flex;
 justify-content: center;
-font-weight: 700;
+align-items: center;
+position: ${({headerColor})=>(headerColor==="transparent"?"relative":"fixed")};
 ` 
 export const MainHeader=styled.div`
 display:flex;
-min-width:60%;
-align-items: center;
-justify-content: center;
+justify-content:space-around;
+flex-grow: 3;
+font-weight: bold;
 `
 export const SideBarHeaders=styled.div`
+
+font-weight: normal;
 display: flex;
 width: auto;
+flex-grow: 1;
 flex-wrap:wrap;
-padding-top:25px;
-column-gap: 25px;
+justify-content: space-evenly;
 @media screen and (max-width:700px){
     display: none;
 
@@ -31,6 +38,20 @@ color: #fff;
 font-size: 2rem;
 display: flex;
 align-items: center;
+text-decoration: none;
+cursor: pointer;
+@media screen and (max-width:400px){
+    position: absolute;
+    top: 10;
+    left: 25;
+}
+`
+export const NavLinkCart=styled(Link)`
+color: #fff;
+font-size: 2rem;
+display: flex;
+position: relative;
+align-items: center;
 row-gap:10px;
 text-decoration: none;
 cursor: pointer;
@@ -38,6 +59,21 @@ cursor: pointer;
     position: absolute;
     top: 10;
     left: 25;
+}
+>p{
+  position: absolute;
+  top:-5px;
+  right:-10px;
+  height: 24px;
+  width: 24px;
+  font-size: 18px;
+  font-weight:lighter;
+  border-radius:10px;
+  background: #e31837;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 `
 
@@ -123,8 +159,8 @@ h4{
 export const Hamberger=styled.div`
   width: 2rem;
   height: 2rem;
-  position: fixed;
-  top: 15px;
+  position: absolute;
+  top: 20px;
   right: 20px;
   z-index: 20;
   display: none;
@@ -136,7 +172,7 @@ export const Hamberger=styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => open ? '#ccc' : '#333'};
+    background-color: ${({ open }) => open ? '#333' : '#333'};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -151,5 +187,71 @@ export const Hamberger=styled.div`
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
+
+`
+
+export const LoginBarContainer=styled.div`
+position: fixed;
+z-index:99;
+width:500px;
+height: 100%;
+background:rgb(8,12,13);
+display: flex;
+flex-direction: column;
+align-items: center;
+border-radius: 10px;
+top:80px;
+transition:right .5s;
+box-shadow: 0 10px 8px 20px rgba(0, 0, 0, 0.35);
+right:${({toggleLogin})=>(toggleLogin?'0':'-10000px')};
+
+@media screen and (max-width:400px){
+    width:100%;
+    };
+    @media screen and (max-height:400px){
+    width:100%;
+    };
+
+`
+export const LoginHeader=styled.div`
+width: 100%;
+background: linear-gradient(to right,rgba(0,0,0,0.7),rgba(0,0,0,0.1)),url(${imgbg});
+height: 220px;
+background-position: center;
+background-size: cover;
+display: flex;
+overflow: hidden;
+flex-direction: column;
+p{
+  font-size: 20px;
+  color: rgb(0,120,173);
+  padding-top:100px;
+  padding-left: 20px;
+}
+`
+export const LoginDescription=styled.div`
+height: 50px;
+p{
+font-size: 20px;
+color: rgb(0,120,173);
+font-weight: normal;
+font-style: italic;
+margin: 10px 10px;
+}
+
+`
+
+export const LoginCard=styled.div`
+background:white;
+width: 90%;
+border-radius: 5px;
+height: 350px;
+margin-bottom: 10px;
+`
+export const LoginFooter=styled.footer`
+height: 20px;
+p{
+  color: white;
+}
 
 `

@@ -4,16 +4,25 @@ import { Locations } from './data'
 import {FooterContainer,FooterWrap,LocationWrapper,
     FooterDeleveryLocations,LocationData,SocialMedia,
     SocialMediaWrap,SocialLogo,SocialIcons,SocialIconLink,
-    TermsWrapper,TermsContent,TermData,Heading } from './FooterElements'
+    TermsWrapper,TermsContent,TermData,Heading,ContactContainer } from './FooterElements'
 
 const Footer = () => {
     return (
         <FooterContainer>
+            <ContactContainer>
+                <h3>Contact US</h3>
+                <div/>
+                <form>
+                <label>EMAIL</label>
+                <input type="email"/>
+                <button type="submit" >GO</button>
+                </form>
+            </ContactContainer>
             <FooterWrap>
                 <LocationWrapper>
                     <p>We delever to... </p>
                     <FooterDeleveryLocations>
-                    {Locations.map((loc)=><LocationData>{loc} </LocationData> )}
+                    {Locations.map((loc)=><LocationData key={loc}>{loc} </LocationData> )}
                     </FooterDeleveryLocations>
                 </LocationWrapper>
                 <TermsWrapper>
@@ -24,7 +33,7 @@ const Footer = () => {
                     </TermsContent>
                     <TermsContent>
                         <Heading>Legal </Heading>
-                        <TermData>Privacy Policy</TermData> 
+                        <TermData>Privacy Policy</TermData> 0
                         <TermData>Terms & Conditions</TermData> 
                     </TermsContent>
                     <TermsContent>

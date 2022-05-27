@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
-
-import { ProductButton,CounterButton,CounterButtonWrapper, AddedToCartButton } from './ProductElements'
+import { ProductButton, AddedToCartButton } from './ProductElements'
 
 const ProductButtonHandler = ({product,updateCart} ) => {
     const [counter,setCounter]= useState(0)
@@ -11,21 +10,16 @@ const ProductButtonHandler = ({product,updateCart} ) => {
         updateCart(product)
 
     }
-    const decrement=()=>{
-        setCounter(counter-1)
-    }
-    const increment=()=>{
-        setCounter(counter+1)
-    }
-    console.log(counter>0)
+
     return (
         <div>
         {
         counter<1
         ?
         <ProductButton onClick={update} >Add to Cart </ProductButton>
-        :
-        <AddedToCartButton>Added to cart</AddedToCartButton>
+        :(localStorage.getItem("userDetails")!==""&&localStorage.getItem("userDetails")!==undefined?<AddedToCartButton>Added to cart</AddedToCartButton>:<p>Please login to add products to cart </p>
+        )
+        
         }
         </div>
     )

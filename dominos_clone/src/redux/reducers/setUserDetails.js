@@ -1,5 +1,5 @@
 const initialState={username:"",password:"",mail:""}
-const setUserDetails=(state={initialState},action)=>{
+const setUserDetails=(state=initialState,action)=>{
     switch(action.type){
         case 'USER_NAME':
             return (state={...state,username:action.data})

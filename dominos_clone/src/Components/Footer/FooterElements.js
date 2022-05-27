@@ -108,3 +108,39 @@ export const SocialIconLink = styled.a`
   color: #fff;
   font-size: 24px;
 `;
+export const ContactContainer=styled.div` 
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction:column;
+h3{
+  color: gold;
+  padding:1rem 0;
+}
+form{
+  display: flex;
+  flex-direction: row;
+  padding:1rem 0;
+  color:white;
+}
+input{
+  margin:0 2rem;
+}
+div{
+  width: 60px;
+  height: 2px ;
+  background: gold;
+}
+button{
+  border-radius: 5px;
+  text-decoration: none;
+  width: 50px;
+  background: white;
+  transition:all .5s;
+  :hover{
+    color: white;
+    background:black;
+    cursor: pointer;
+  }
+}
+`
